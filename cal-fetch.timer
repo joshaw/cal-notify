@@ -1,0 +1,10 @@
+[Unit]
+Description = Calendar notifications
+
+[Timer]
+OnBootSec = 5min
+OnUnitActiveSec = 1hour
+AccuracySec = 1min
+
+[Install]
+WantedBy = multi-user.target
