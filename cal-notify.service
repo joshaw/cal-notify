@@ -3,5 +3,5 @@ Description = Calendar notifications
 
 [Service]
 Type = oneshot
-WorkingDirectory = %h/cal-notify/
+WorkingDirectory = %h/.local/lib/cal-notify/
 ExecStart = /bin/sh cal-notify.sh

@@ -4,5 +4,5 @@ After = network.target
 
 [Service]
 Type = oneshot
-WorkingDirectory = %h/cal-notify/
+WorkingDirectory = %h/.local/lib/cal-notify/
 ExecStart = /bin/sh cal-fetch.sh
