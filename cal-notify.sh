@@ -11,7 +11,11 @@ for MATCH in "$MATCH_15" "$MATCH_1"; do
 		--arg match "$MATCH" \
 		'map(select(.start == $match)) | .[] | [.start, .summary, .location] | @tsv' |
 		while IFS=$'\t' read -r start summary location; do
-			notify-send --urgency "$LEVEL" "$summary" "$start\\n$location"
+			notify-send \
+				--urgency "$LEVEL" \
+				--icon "x-office-calendar-symbolic" \
+				"$summary" \
+				"$start\\n$location"
 		done
 
 	LEVEL=normal
