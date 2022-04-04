@@ -138,8 +138,11 @@ def main(dt_from, dt_to):
         if not "RRULE" in event:
             event["RRULE"] = {"params": [], "value": "FREQ=DAILY;COUNT=1"}
 
-        if not "LOCATION" in event:
-            event["LOCATION"] = {"params": [], "value": ""}
+        if not "LOCATION" in event or not event["LOCATION"]["value"]:
+            if "X-GOOGLE-CONFERENCE" in event:
+                event["LOCATION"] = event["X-GOOGLE-CONFERENCE"][0]
+            else:
+                event["LOCATION"] = {"params": [], "value": ""}
 
         expanded_events += get_next_occurance(event, dt_from, dt_to, tzinfos)
 
