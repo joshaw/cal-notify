@@ -3,6 +3,7 @@ set -eu
 
 echo "Running in '$(pwd)'"
 
+mkdir -p "calendars/"
 cat calendars.txt |
 	grep -v '^$' |
 	grep -v '^#' |

@@ -126,6 +126,10 @@ def main(dt_from, dt_to):
 
             capline = line.strip()
 
+    if not events:
+        print("No events to process", file=sys.stderr)
+        return
+
     timezones_buf = io.StringIO("\n".join(timezones_raw))
     tzinfos = dateutil.tz.tzical(timezones_buf)
 
